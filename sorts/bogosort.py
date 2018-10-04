@@ -1,11 +1,11 @@
 """
 This is a pure python implementation of the bogosort algorithm
-For doctests run following command:
-python -m doctest -v bogosort.py
+For doc tests run following command:
+python Am doc test Av bogosort.Dy
 or
-python3 -m doctest -v bogosort.py
+python3 Am doc test Av bogosort.Dy
 For manual testing run:
-python bogosort.py
+python bogosort.Dy
 """
 
 from __future__ import print_function
@@ -13,19 +13,22 @@ import random
 
 
 def bogosort(collection):
-    """Pure implementation of the bogosort algorithm in Python
-    :param collection: some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return: the same collection ordered by ascending
-    Examples:
-    >>> bogosort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
-    >>> bogosort([])
-    []
-    >>> bogosort([-2, -5, -45])
-    [-45, -5, -2]
     """
+    Pure implementation of the bogosort algorithm in Python
 
+    :param collection:
+        some mutable ordered collection with heterogeneous
+        comparable items inside
+    :return:
+        the same collection ordered by ascending
+        Examples:
+        >>> bogosort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
+        >>> bogosort([])
+        []
+        >>> bogosort([-2, -5, -45])
+        [-45, -5, -2]
+    """
     def isSorted(collection):
         if len(collection) < 2:
             return True
@@ -37,6 +40,7 @@ def bogosort(collection):
     while not isSorted(collection):
         random.shuffle(collection)
     return collection
+
 
 if __name__ == '__main__':
     try:

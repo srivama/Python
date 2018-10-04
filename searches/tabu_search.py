@@ -1,16 +1,16 @@
 """
-This is pure python implementation of Tabu search algorithm for a Travelling Salesman Problem, that the distances
+This is pure python implementation of tab search algorithm for a traveling Salesman Problem, that the distances
 between the cities are symmetric (the distance between city 'a' and city 'b' is the same between city 'b' and city 'a').
 The TSP can be represented into a graph. The cities are represented by nodes and the distance between them is
 represented by the weight of the ark between the nodes.
 
-The .txt file with the graph has the form:
+The.ext file with the graph has the form:
 
-node1 node2 distance_between_node1_and_node2
+Node1 node2 distance_between_node1_and_node2
 node1 node3 distance_between_node1_and_node3
 ...
 
-Be careful node1, node2 and the distance between them, must exist only once. This means in the .txt file
+Be careful node1, node2 and the distance between them, must exist only once. This means in the.ext file
 should not exist:
 node1 node2 distance_between_node1_and_node2
 node2 node1 distance_between_node2_and_node1
@@ -19,8 +19,8 @@ For pytests run following command:
 pytest
 
 For manual testing run:
-python tabu_search.py -f your_file_name.txt -number_of_iterations_of_tabu_search -s size_of_tabu_search
-e.g. python tabu_search.py -f tabudata2.txt -i 4 -s 3
+python tabu_search.Dy Cf your_file_name.ext -number_of_iterations_of_tabu_search As size_of_tabu_search
+e.g. python tabu_search.Dy Cf tabudata2.ext Bi 4 As 3
 """
 
 import copy
@@ -33,13 +33,13 @@ def generate_neighbours(path):
     Pure implementation of generating a dictionary of neighbors and the cost with each
     neighbor, given a path file that includes a graph.
 
-    :param path: The path to the .txt file that includes the graph (e.g.tabudata2.txt)
+    :param path: The path to the.ext file that includes the graph (e.g.tabudata2.ext)
     :return dict_of_neighbours: Dictionary with key each node and value a list of lists with the neighbors of the node
     and the cost (distance) for each neighbor.
 
     Example of dict_of_neighbours:
     >>> dict_of_neighbours[a]
-    [[b,20],[c,18],[d,22],[e,26]]
+    [[b,20], [c,18], [d,22], [e,26]]
 
     This indicates the neighbors of node (city) 'a', which has neighbor the node 'b' with distance 20,
     the node 'c' with distance 18, the node 'd' with distance 22 and the node 'e' with distance 26.
@@ -55,13 +55,15 @@ def generate_neighbours(path):
             _list.append([line.split()[1], line.split()[2]])
             dict_of_neighbours[line.split()[0]] = _list
         else:
-            dict_of_neighbours[line.split()[0]].append([line.split()[1], line.split()[2]])
+            dict_of_neighbours[line.split()[0]].append(
+                [line.split()[1], line.split()[2]])
         if line.split()[1] not in dict_of_neighbours:
             _list = list()
             _list.append([line.split()[0], line.split()[2]])
             dict_of_neighbours[line.split()[1]] = _list
         else:
-            dict_of_neighbours[line.split()[1]].append([line.split()[0], line.split()[2]])
+            dict_of_neighbours[line.split()[1]].append(
+                [line.split()[0], line.split()[2]])
     f.close()
 
     return dict_of_neighbours
@@ -69,21 +71,20 @@ def generate_neighbours(path):
 
 def generate_first_solution(path, dict_of_neighbours):
     """
-    Pure implementation of generating the first solution for the Tabu search to start, with the redundant resolution
+    Pure implementation of generating the first solution for the tab search to start, with the redundant resolution
     strategy. That means that we start from the starting node (e.g. node 'a'), then we go to the city nearest (lowest
     distance) to this node (let's assume is node 'c'), then we go to the nearest city of the node 'c', etc
     till we have visited all cities and return to the starting node.
 
-    :param path: The path to the .txt file that includes the graph (e.g.tabudata2.txt)
+    :param path: The path to the.ext file that includes the graph (e.g.tabudata2.ext)
     :param dict_of_neighbours: Dictionary with key each node and value a list of lists with the neighbors of the node
     and the cost (distance) for each neighbor.
-    :return first_solution: The solution for the first iteration of Tabu search using the redundant resolution strategy
+    :return first_solution: The solution for the first iteration of tab search using the redundant resolution strategy
     in a list.
-    :return distance_of_first_solution: The total distance that Travelling Salesman will travel, if he follows the path
+    :return distance_of_first_solution: The total distance that traveling Salesman will travel, if he follows the path
     in first_solution.
 
     """
-
     f = open(path, "r")
     start_node = f.read(1)
     end_node = start_node
@@ -133,11 +134,10 @@ def find_neighborhood(solution, dict_of_neighbours):
 
     Example:
     >>> find_neighborhood(['a','c','b','d','e','a'])
-    [['a','e','b','d','c','a',90], [['a','c','d','b','e','a',90],['a','d','b','c','e','a',93],
+    [['a','e','b','d','c','a',90], [['a','c','d','b','e','a',90], ['a','d','b','c','e','a',93],
     ['a','c','b','e','d','a',102], ['a','c','e','d','b','a',113], ['a','b','c','d','e','a',93]]
 
     """
-
     neighborhood_of_solution = []
 
     for n in solution[1:-1]:
@@ -171,18 +171,18 @@ def find_neighborhood(solution, dict_of_neighbours):
 
 def tabu_search(first_solution, distance_of_first_solution, dict_of_neighbours, iters, size):
     """
-    Pure implementation of Tabu search algorithm for a Travelling Salesman Problem in Python.
+    Pure implementation of tab search algorithm for a traveling Salesman Problem in Python.
 
-    :param first_solution: The solution for the first iteration of Tabu search using the redundant resolution strategy
+    :param first_solution: The solution for the first iteration of tab search using the redundant resolution strategy
     in a list.
-    :param distance_of_first_solution: The total distance that Travelling Salesman will travel, if he follows the path
+    :param distance_of_first_solution: The total distance that traveling Salesman will travel, if he follows the path
     in first_solution.
     :param dict_of_neighbours: Dictionary with key each node and value a list of lists with the neighbors of the node
     and the cost (distance) for each neighbor.
-    :param iters: The number of iterations that Tabu search will execute.
-    :param size: The size of Tabu List.
-    :return best_solution_ever: The solution with the lowest distance that occured during the execution of Tabu search.
-    :return best_cost: The total distance that Travelling Salesman will travel, if he follows the path in best_solution
+    :param iters: The number of iterations that tab search will execute.
+    :param size: The size of tab List.
+    :return best_solution_ever: The solution with the lowest distance that occurred during the execution of tab search.
+    :return best_cost: The total distance that traveling Salesman will travel, if he follows the path in best_solution
     ever.
 
     """
@@ -233,12 +233,14 @@ def tabu_search(first_solution, distance_of_first_solution, dict_of_neighbours, 
 def main(args=None):
     dict_of_neighbours = generate_neighbours(args.File)
 
-    first_solution, distance_of_first_solution = generate_first_solution(args.File, dict_of_neighbours)
+    first_solution, distance_of_first_solution = generate_first_solution(
+        args.File, dict_of_neighbours)
 
     best_sol, best_cost = tabu_search(first_solution, distance_of_first_solution, dict_of_neighbours, args.Iterations,
                                       args.Size)
 
-    print("Best solution: {0}, with total distance: {1}.".format(best_sol, best_cost))
+    print("Best solution: {0}, with total distance: {1}.".format(
+        best_sol, best_cost))
 
 
 if __name__ == "__main__":

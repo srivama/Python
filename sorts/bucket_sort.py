@@ -19,6 +19,7 @@ import math
 
 DEFAULT_BUCKET_SIZE = 5
 
+
 def bucketSort(myList, bucketSize=DEFAULT_BUCKET_SIZE):
     if(len(myList) == 0):
         print('You don\'t have any elements in array!')
@@ -41,7 +42,8 @@ def bucketSort(myList, bucketSize=DEFAULT_BUCKET_SIZE):
 
     # For putting values in buckets
     for i in range(0, len(myList)):
-        buckets[math.floor((myList[i] - minValue) / bucketSize)].append(myList[i])
+        buckets[math.floor((myList[i] - minValue) /
+                           bucketSize)].append(myList[i])
 
     # Sort buckets and place back into input array
     sortedArray = []
@@ -51,6 +53,7 @@ def bucketSort(myList, bucketSize=DEFAULT_BUCKET_SIZE):
             sortedArray.append(buckets[i][j])
 
     return sortedArray
+
 
 if __name__ == '__main__':
     sortedArray = bucketSort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95])

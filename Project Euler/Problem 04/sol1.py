@@ -7,7 +7,7 @@ from __future__ import print_function
 limit = int(input("limit? "))
 
 # fetchs the next number
-for number in range(limit-1,10000,-1):
+for number in range(limit-1, 10000, -1):
 
     # converts number into string.
     strNumber = str(number)
@@ -19,11 +19,11 @@ for number in range(limit-1,10000,-1):
 
         # if 'number' is a product of two 3-digit numbers
         # then number is the answer otherwise fetch next number.
-        while(divisor != 99): 
-            
+        while(divisor != 99):
+
             if((number % divisor == 0) and (len(str(number / divisor)) == 3)):
 
                 print(number)
                 exit(0)
 
-            divisor -=1
+            divisor -= 1

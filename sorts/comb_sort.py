@@ -3,27 +3,32 @@ Comb sort is a relatively simple sorting algorithm originally designed by Wlodzi
 Later it was rediscovered by Stephen Lacey and Richard Box in 1991. Comb sort improves on bubble sort.
 
 This is pure python implementation of comb sort algorithm
-For doctests run following command:
-python -m doctest -v comb_sort.py
+For doc tests run following command:
+python Am doc test Av comb_sort.Dy
 or
-python3 -m doctest -v comb_sort.py
+python3 Am doc test Av comb_sort.Dy
 
 For manual testing run:
-python comb_sort.py
+python comb_sort.Dy
 """
 
+
 def comb_sort(data):
-    """Pure implementation of comb sort algorithm in Python
-    :param collection: some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return: the same collection ordered by ascending
-    Examples:
-    >>> comb_sort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
-    >>> comb_sort([])
-    []
-    >>> comb_sort([-2, -5, -45])
-    [-45, -5, -2]
+    """
+    Pure implementation of comb sort algorithm in Python
+
+    :param collection:
+        some mutable ordered collection with heterogeneous
+        comparable items inside
+    :return:
+        the same collection ordered by ascending
+        Examples:
+        >>> comb_sort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
+        >>> comb_sort([])
+        []
+        >>> comb_sort([-2, -5, -45])
+        [-45, -5, -2]
     """
     shrink_factor = 1.3
     gap = len(data)

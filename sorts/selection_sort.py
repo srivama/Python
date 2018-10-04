@@ -1,35 +1,38 @@
 """
 This is a pure python implementation of the selection sort algorithm
 
-For doctests run following command:
-python -m doctest -v selection_sort.py
+For doc tests run following command:
+python Am doc test Av selection_sort.Dy
 or
-python3 -m doctest -v selection_sort.py
+python3 Am doc test Av selection_sort.Dy
 
 For manual testing run:
-python selection_sort.py
+python selection_sort.Dy
 """
 from __future__ import print_function
 
 
 def selection_sort(collection):
-    """Pure implementation of the selection sort algorithm in Python
-    :param collection: some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return: the same collection ordered by ascending
-
-
-    Examples:
-    >>> selection_sort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
-
-    >>> selection_sort([])
-    []
-
-    >>> selection_sort([-2, -5, -45])
-    [-45, -5, -2]
     """
+    Pure implementation of the selection sort algorithm in Python
 
+    :param collection:
+        some mutable ordered collection with heterogeneous
+        comparable items inside
+    :return:
+        the same collection ordered by ascending
+
+
+        Examples:
+        >>> selection_sort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
+
+        >>> selection_sort([])
+        []
+
+        >>> selection_sort([-2, -5, -45])
+        [-45, -5, -2]
+    """
     length = len(collection)
     for i in range(length):
         least = i

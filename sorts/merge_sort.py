@@ -1,33 +1,36 @@
 """
 This is a pure python implementation of the merge sort algorithm
 
-For doctests run following command:
-python -m doctest -v merge_sort.py
+For doc tests run following command:
+python Am doc test Av merge_sort.Dy
 or
-python3 -m doctest -v merge_sort.py
+python3 Am doc test Av merge_sort.Dy
 
 For manual testing run:
-python merge_sort.py
+python merge_sort.Dy
 """
 from __future__ import print_function
 
 
 def merge_sort(collection):
-    """Pure implementation of the merge sort algorithm in Python
+    """
+    Pure implementation of the merge sort algorithm in Python
 
-    :param collection: some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return: the same collection ordered by ascending
+    :param collection:
+        some mutable ordered collection with heterogeneous
+        comparable items inside
+    :return:
+        the same collection ordered by ascending
 
-    Examples:
-    >>> merge_sort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
+        Examples:
+        >>> merge_sort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
 
-    >>> merge_sort([])
-    []
+        >>> merge_sort([])
+        []
 
-    >>> merge_sort([-2, -5, -45])
-    [-45, -5, -2]
+        >>> merge_sort([-2, -5, -45])
+        [-45, -5, -2]
     """
     length = len(collection)
     if length > 1:

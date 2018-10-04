@@ -4,17 +4,15 @@ import math
 def rearrange(bitString32):
 	"""[summary]
 	Regroups the given binary string.
-	
+
 	Arguments:
 		bitString32 {[string]} -- [32 bit binary]
-	
+
 	Raises:
 		ValueError -- [if the given string not are 32 bit binary string]
-	
-	Returns:
-		[string] -- [32 bit binary string]
-	"""
 
+	Returns:
+		[string] -- [32 bit binary string]"""
 	if len(bitString32) != 32:
 		raise ValueError("Need length 32")
 	newString = ""
@@ -27,9 +25,7 @@ def reformatHex(i):
 	Converts the given integer into 8-digit hex number.
 
 	Arguments:
-		i {[int]} -- [integer]
-	"""
-
+		i {[int]} -- [integer]"""
 	hexrep = format(i,'08x')
 	thing = ""
 	for i in [3,2,1,0]:
@@ -42,11 +38,9 @@ def pad(bitString):
 
 	Arguments:
 		bitString {[string]} -- [binary string]
-	
-	Returns:
-		[string] -- [binary string]
-	"""
 
+	Returns:
+		[string] -- [binary string]"""
 	startLength = len(bitString)
 	bitString += '1'
 	while len(bitString) % 512 != 448:
@@ -62,9 +56,7 @@ def getBlock(bitString):
 		integer blocks. 
 
 	Arguments:
-		bitString {[string]} -- [binary string >= 512]
-	"""
-
+		bitString {[string]} -- [binary string >= 512]"""
 	currPos = 0
 	while currPos < len(bitString):
 		currPart = bitString[currPos:currPos+512]
@@ -75,26 +67,27 @@ def getBlock(bitString):
 		currPos += 512
 
 def not32(i):
-	i_str = format(i,'032b')
-	new_str = ''
-	for c in i_str:
-		new_str += '1' if c=='0' else '0'
-	return int(new_str,2)
+    i_str = format(i, '032b')
+    new_str = ''
+    for c in i_str:
+        new_str += '1' if c == '0' else '0'
+    return int(new_str, 2)
 
-def sum32(a,b):
-	return (a + b) % 2**32
 
-def leftrot32(i,s):
-	return (i << s) ^ (i >> (32-s))
+def sum32(a, b):
+    return (a + b) % 2**32
+
+
+def leftrot32(i, s):
+    return (i << s) ^ (i >> (32-s))
+
 
 def md5me(testString):
 	"""[summary]
 	Returns a 32-bit hash code of the string 'testString'
 
 	Arguments:
-		testString {[string]} -- [message]
-	"""
-
+		testString {[string]} -- [message]"""
 	bs =''
 	for i in testString:
 		bs += format(ord(i),'08b')
@@ -146,10 +139,11 @@ def md5me(testString):
 	return digest
 
 def test():
-	assert md5me("") == "d41d8cd98f00b204e9800998ecf8427e"	
-	assert md5me("The quick brown fox jumps over the lazy dog") == "9e107d9d372bb6826bd81d3542a419d6"
-	print("Success.")
+    assert md5me("") == "d41d8cd98f00b204e9800998ecf8427e"
+    assert md5me(
+        "The quick brown fox jumps over the lazy dog") == "9e107d9d372bb6826bd81d3542a419d6"
+    print("Success.")
 
 
 if __name__ == "__main__":
-	test()
+    test()

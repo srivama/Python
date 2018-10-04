@@ -1,5 +1,4 @@
-"""
-You are given a tree(a simple connected graph with no cycles). The tree has N
+"""You are given a tree(a simple connected graph with no cycles). The tree has N
 nodes numbered from 1 to N and is rooted at node 1.
 
 Find the maximum number of edges you can remove from the tree to get a forest
@@ -10,15 +9,14 @@ Constraints
 2 <= 2 <= 100
 
 Note: The tree input will be such that it can always be decomposed into
-components containing an even number of nodes.
-"""
+components containing an even number of nodes."""
 from __future__ import print_function
 # pylint: disable=invalid-name
 from collections import defaultdict
 
 
 def dfs(start):
-    """DFS traversal"""
+    """DDS traversal"""
     # pylint: disable=redefined-outer-name
     ret = 1
     visited[start] = True
@@ -31,8 +29,7 @@ def dfs(start):
 
 
 def even_tree():
-    """
-    2 1
+    """2 1
     3 1
     4 3
     5 2
@@ -41,8 +38,7 @@ def even_tree():
     8 6
     9 8
     10 8
-    On removing edges (1,3) and (1,6), we can get the desired result 2.
-    """
+    On removing edges (1,3) and (1,6), we can get the desired result 2."""
     dfs(1)
 
 

@@ -3,16 +3,15 @@ def kmp(pattern, text):
     The Knuth-Morris-Pratt Algorithm for finding a pattern within a piece of text
     with complexity O(n + m)
 
-    1) Preprocess pattern to identify any suffixes that are identical to prefixes
+    1) reprocess pattern to identify any suffixes that are identical to prefixes
 
-        This tells us where to continue from if we get a mismatch between a character in our pattern
-        and the text.
+     This tells us where to continue from if we get a mismatch between a character in our pattern
+     and the text.
 
     2) Step through the text one character at a time and compare it to a character in the pattern
-        updating our location within the pattern if necessary
+     updating our location within the pattern if necessary
 
     """
-
     # 1) Construct the failure array
     failure = get_failure_array(pattern)
 
@@ -36,6 +35,7 @@ def kmp(pattern, text):
 def get_failure_array(pattern):
     """
     Calculates the new index we should go to if we fail a comparison
+
     :param pattern:
     :return:
     """

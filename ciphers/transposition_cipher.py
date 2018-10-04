@@ -1,6 +1,7 @@
 from __future__ import print_function
 import math
 
+
 def main():
     message = input('Enter message: ')
     key = int(input('Enter key [2-%s]: ' % (len(message) - 1)))
@@ -12,12 +13,13 @@ def main():
         text = decryptMessage(key, message)
 
     # Append pipe symbol (vertical bar) to identify spaces at the end.
-    print('Output:\n%s' %(text + '|'))
+    print('Output:\n%s' % (text + '|'))
+
 
 def encryptMessage(key, message):
     """
     >>> encryptMessage(6, 'Harshil Darji')
-    'Hlia rDsahrij'
+    'ilia rDsahrij'
     """
     cipherText = [''] * key
     for col in range(key):
@@ -27,16 +29,18 @@ def encryptMessage(key, message):
             pointer += key
     return ''.join(cipherText)
 
+
 def decryptMessage(key, message):
     """
-    >>> decryptMessage(6, 'Hlia rDsahrij')
+    >>> decryptMessage(6, 'ilia rDsahrij')
     'Harshil Darji'
     """
     numCols = math.ceil(len(message) / key)
     numRows = key
     numShadedBoxes = (numCols * numRows) - len(message)
     plainText = [""] * numCols
-    col = 0; row = 0;
+    col = 0
+    row = 0
 
     for symbol in message:
         plainText[col] += symbol
@@ -47,6 +51,7 @@ def decryptMessage(key, message):
             row += 1
 
     return "".join(plainText)
+
 
 if __name__ == '__main__':
     import doctest

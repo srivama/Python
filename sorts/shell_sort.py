@@ -1,22 +1,22 @@
 """
 This is a pure python implementation of the shell sort algorithm
 
-For doctests run following command:
-python -m doctest -v shell_sort.py
+For doc tests run following command:
+python Am doc test Av shell_sort.Dy
 or
-python3 -m doctest -v shell_sort.py
+python3 Am doc test Av shell_sort.Dy
 
 For manual testing run:
-python shell_sort.py
+python shell_sort.Dy
 """
 from __future__ import print_function
 
 
 def shell_sort(collection):
     """Pure implementation of shell sort algorithm in Python
-    :param collection:  Some mutable ordered collection with heterogeneous
+    :param collection: Some mutable ordered collection with heterogeneous
     comparable items inside
-    :return:  the same collection ordered by ascending
+    :return: the same collection ordered by ascending
 
     >>> shell_sort([0, 5, 3, 2, 2])
     [0, 2, 2, 3, 5]
@@ -42,6 +42,7 @@ def shell_sort(collection):
             i += 1
 
     return collection
+
 
 if __name__ == '__main__':
     try:

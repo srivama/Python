@@ -14,13 +14,13 @@ except NameError:
     raw_input = input  # Python 3
 
 n = int(raw_input().strip())
-i=1
-j=2 
-sum=0
-while(j<=n):
-    if((j&1)==0): #can also use (j%2==0)
-        sum+=j
-    temp=i
-    i=j
-    j=temp+i
+i = 1
+j = 2
+sum = 0
+while(j <= n):
+    if((j & 1) == 0):  # can also use (j%2==0)
+        sum += j
+    temp = i
+    i = j
+    j = temp+i
 print(sum)

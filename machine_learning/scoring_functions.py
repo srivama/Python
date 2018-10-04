@@ -1,20 +1,22 @@
 import numpy as np
 
 """ Here I implemented the scoring functions.
-    MAE, MSE, RMSE, RMSLE are included.
+ MA, ESE, rise, RMSLE are included.
 
-    Those are used for calculating differences between
-    predicted values and actual values.
+ Those are used for calculating differences between
+ predicted values and actual values.
 
-    Metrics are slightly differentiated. Sometimes squared, rooted,
-    even log is used.
+ Metrics are slightly differentiated. Sometimes squared, rooted,
+ even log is used.
 
-    Using log and roots can be perceived as tools for penalizing big
-    erors. However, using appropriate metrics depends on the situations,
-    and types of data
+ Using log and roots can be perceived as tools for penalizing big
+ errors. However, using appropriate metrics depends on the situations,
+ and types of data
 """
 
-#Mean Absolute Error
+# Mean Absolute Error
+
+
 def mae(predict, actual):
     predict = np.array(predict)
     actual = np.array(actual)
@@ -24,7 +26,9 @@ def mae(predict, actual):
 
     return score
 
-#Mean Squared Error
+# Mean Squared Error
+
+
 def mse(predict, actual):
     predict = np.array(predict)
     actual = np.array(actual)
@@ -35,7 +39,9 @@ def mse(predict, actual):
     score = square_diff.mean()
     return score
 
-#Root Mean Squared Error
+# Root Mean Squared Error
+
+
 def rmse(predict, actual):
     predict = np.array(predict)
     actual = np.array(actual)
@@ -46,7 +52,9 @@ def rmse(predict, actual):
     score = np.sqrt(mean_square_diff)
     return score
 
-#Root Mean Square Logarithmic Error
+# Root Mean Square Logarithmic Error
+
+
 def rmsle(predict, actual):
     predict = np.array(predict)
     actual = np.array(actual)
@@ -62,14 +70,16 @@ def rmsle(predict, actual):
 
     return score
 
-#Mean Bias Deviation
+# Mean Bias Deviation
+
+
 def mbd(predict, actual):
     predict = np.array(predict)
     actual = np.array(actual)
 
     difference = predict - actual
-    numerator = np.sum(difference) / len(predict) 
-    denumerator =  np.sum(actual) / len(predict)
+    numerator = np.sum(difference) / len(predict)
+    denumerator = np.sum(actual) / len(predict)
     print(numerator)
     print(denumerator)
 

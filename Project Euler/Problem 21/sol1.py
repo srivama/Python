@@ -1,4 +1,4 @@
-#-.- coding: latin-1 -.-
+# -.- coding: latin-1 -.-
 from __future__ import print_function
 from math import sqrt
 '''
@@ -13,30 +13,32 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 '''
 try:
-	xrange		#Python 2
+    xrange  # Python 2
 except NameError:
-	xrange = range	#Python 3
+    xrange = range  # Python 3
+
 
 def sum_of_divisors(n):
-	total = 0
-	for i in xrange(1, int(sqrt(n)+1)):
-		if n%i == 0 and i != sqrt(n):
-			total += i + n//i
-		elif i == sqrt(n):
-			total += i
+    total = 0
+    for i in xrange(1, int(sqrt(n)+1)):
+        if n % i == 0 and i != sqrt(n):
+            total += i + n//i
+        elif i == sqrt(n):
+            total += i
 
-	return total-n
+    return total-n
+
 
 sums = []
 total = 0
 
 for i in xrange(1, 10000):
-	n = sum_of_divisors(i)
-	
-	if n < len(sums):
-		if sums[n-1] == i:
-			total += n + i
+    n = sum_of_divisors(i)
 
-	sums.append(n)
+    if n < len(sums):
+        if sums[n-1] == i:
+            total += n + i
+
+    sums.append(n)
 
 print(total)

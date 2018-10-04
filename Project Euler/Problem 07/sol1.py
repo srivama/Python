@@ -5,26 +5,30 @@ What is the Nth prime number?
 '''
 from __future__ import print_function
 from math import sqrt
+
+
 def isprime(n):
-    if (n==2):
+    if (n == 2):
         return True
-    elif (n%2==0):
+    elif (n % 2 == 0):
         return False
     else:
         sq = int(sqrt(n))+1
-        for i in range(3,sq,2):
-            if(n%i==0):
+        for i in range(3, sq, 2):
+            if(n % i == 0):
                 return False
     return True
+
+
 n = int(input())
-i=0
-j=1
-while(i!=n and j<3):
-    j+=1
+i = 0
+j = 1
+while(i != n and j < 3):
+    j += 1
     if (isprime(j)):
-        i+=1
-while(i!=n):
-    j+=2
+        i += 1
+while(i != n):
+    j += 2
     if(isprime(j)):
-        i+=1
+        i += 1
 print(j)

@@ -17,5 +17,5 @@ while 1:
     if not data:
         break
     conn.send(data + b' [ addition by server ]')
-        
+
 conn.close()

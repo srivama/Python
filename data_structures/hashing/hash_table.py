@@ -4,9 +4,8 @@ from number_theory.prime_numbers import next_prime
 
 class HashTable:
     """
-        Basic Hash Table example with open addressing and linear probing
+     Basic Hash Table example with open addressing and linear probing
     """
-
     def __init__(self, size_table, charge_factor=None, lim_charge=None):
         self.size_table = size_table
         self.values = [None] * self.size_table
@@ -61,7 +60,8 @@ class HashTable:
         survivor_values = [value for value in self.values if value is not None]
         self.size_table = next_prime(self.size_table, factor=2)
         self._keys.clear()
-        self.values = [None] * self.size_table #hell's pointers D: don't DRY ;/
+        # hell's pointers D: don't DRY ;/
+        self.values = [None] * self.size_table
         map(self.insert_data, survivor_values)
 
     def insert_data(self, data):
@@ -80,5 +80,3 @@ class HashTable:
             else:
                 self.rehashing()
                 self.insert_data(data)
-
-

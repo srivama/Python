@@ -20,7 +20,7 @@ for i in xrange(n):
 
 """
 --------------------------------------------------------------------------------
-    Accepting edges of Unweighted Directed Graphs
+ Accepting edges of Unweighted Directed Graphs
 --------------------------------------------------------------------------------
 """
 for _ in xrange(m):
@@ -29,7 +29,7 @@ for _ in xrange(m):
 
 """
 --------------------------------------------------------------------------------
-    Accepting edges of Unweighted Undirected Graphs
+ Accepting edges of Unweighted Undirected Graphs
 --------------------------------------------------------------------------------
 """
 for _ in xrange(m):
@@ -39,7 +39,7 @@ for _ in xrange(m):
 
 """
 --------------------------------------------------------------------------------
-    Accepting edges of Weighted Undirected Graphs
+ Accepting edges of Weighted Undirected Graphs
 --------------------------------------------------------------------------------
 """
 for _ in xrange(m):
@@ -49,11 +49,11 @@ for _ in xrange(m):
 
 """
 --------------------------------------------------------------------------------
-    Depth First Search.
-        Args :  G - Dictionary of edges
-                s - Starting Node
-        Vars :  vis - Set of visited nodes
-                S - Traversal Stack
+ Depth First Search.
+ Ares : G - Dictionary of edges
+ s - Starting Node
+ Vars : Avis - Set of visited nodes
+ S - Traversal Stack
 --------------------------------------------------------------------------------
 """
 
@@ -76,11 +76,11 @@ def dfs(G, s):
 
 """
 --------------------------------------------------------------------------------
-    Breadth First Search.
-        Args :  G - Dictionary of edges
-                s - Starting Node
-        Vars :  vis - Set of visited nodes
-                Q - Traveral Stack
+ Breadth First Search.
+ Ares : G - Dictionary of edges
+ s - Starting Node
+ Vars : Avis - Set of visited nodes
+ Q - traversal Stack
 --------------------------------------------------------------------------------
 """
 from collections import deque
@@ -100,12 +100,12 @@ def bfs(G, s):
 
 """
 --------------------------------------------------------------------------------
-    Dijkstra's shortest path Algorithm
-        Args :  G - Dictionary of edges
-                s - Starting Node
-        Vars :  dist - Dictionary storing shortest distance from s to every other node
-                known - Set of knows nodes
-                path - Preceding node in path
+ Dijkstra's shortest path Algorithm
+ Ares : G - Dictionary of edges
+ s - Starting Node
+ Vars : dist - Dictionary storing shortest distance from s to every other node
+ known - Set of knows nodes
+ path - Preceding node in path
 --------------------------------------------------------------------------------
 """
 
@@ -133,7 +133,7 @@ def dijk(G, s):
 
 """
 --------------------------------------------------------------------------------
-    Topological Sort
+ Topological Sort
 --------------------------------------------------------------------------------
 """
 from collections import deque
@@ -162,7 +162,7 @@ def topo(G, ind=None, Q=[1]):
 
 """
 --------------------------------------------------------------------------------
-    Reading an Adjacency matrix
+ Reading an Adjacency matrix
 --------------------------------------------------------------------------------
 """
 
@@ -176,12 +176,12 @@ def adjm():
 
 """
 --------------------------------------------------------------------------------
-    Floyd Warshall's algorithm
-        Args :  G - Dictionary of edges
-                s - Starting Node
-        Vars :  dist - Dictionary storing shortest distance from s to every other node
-                known - Set of knows nodes
-                path - Preceding node in path
+ Floyd Marshall's algorithm
+ Ares : G - Dictionary of edges
+ s - Starting Node
+ Vars : dist - Dictionary storing shortest distance from s to every other node
+ known - Set of knows nodes
+ path - Preceding node in path
 
 --------------------------------------------------------------------------------
 """
@@ -202,12 +202,12 @@ def floy(A_and_n):
 
 """
 --------------------------------------------------------------------------------
-    Prim's MST Algorithm
-        Args :  G - Dictionary of edges
-                s - Starting Node
-        Vars :  dist - Dictionary storing shortest distance from s to nearest node
-                known - Set of knows nodes
-                path - Preceding node in path
+ Prim's MST Algorithm
+ Ares : G - Dictionary of edges
+ s - Starting Node
+ Vars : dist - Dictionary storing shortest distance from s to nearest node
+ known - Set of knows nodes
+ path - Preceding node in path
 --------------------------------------------------------------------------------
 """
 
@@ -232,11 +232,11 @@ def prim(G, s):
 
 """
 --------------------------------------------------------------------------------
-    Accepting Edge list
-        Vars :  n - Number of nodes
-                m - Number of edges
-        Returns : l - Edge list
-                n - Number of Nodes
+ Accepting Edge list
+ Vars : n - Number of nodes
+ m - Number of edges
+ Returns : l - Edge list
+ n - Number of Nodes
 --------------------------------------------------------------------------------
 """
 
@@ -251,10 +251,10 @@ def edglist():
 
 """
 --------------------------------------------------------------------------------
-    Kruskal's MST Algorithm
-        Args :  E - Edge list
-                n - Number of Nodes
-        Vars :  s - Set of all nodes as unique disjoint sets (initially)
+ Kruskal's MST Algorithm
+ Ares : E - Edge list
+ n - Number of Nodes
+ Vars : s - Set of all nodes as unique disjoint sets (initially)
 --------------------------------------------------------------------------------
 """
 

@@ -1,20 +1,28 @@
 from __future__ import print_function
-import collections, pprint, time, os
+import collections
+import pprint
+import time
+import os
 
 start_time = time.time()
 print('creating word list...')
 path = os.path.split(os.path.realpath(__file__))
-word_list = sorted(list(set([word.strip().lower() for word in open(path[0] + '/words')])))
+word_list = sorted(list(set([word.strip().lower()
+                             for word in open(path[0] + '/words')])))
+
 
 def signature(word):
     return ''.join(sorted(word))
+
 
 word_bysig = collections.defaultdict(list)
 for word in word_list:
     word_bysig[signature(word)].append(word)
 
+
 def anagram(myword):
     return word_bysig[signature(myword)]
+
 
 print('finding anagrams...')
 all_anagrams = {word: anagram(word)

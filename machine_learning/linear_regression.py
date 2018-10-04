@@ -1,11 +1,11 @@
 """
 Linear regression is the most basic type of regression commonly used for
-predictive analysis. The idea is preety simple, we have a dataset and we have
+predictive analysis. The idea is pretty simple, we have a data set and we have
 a feature's associated with it. The Features should be choose very cautiously
 as they determine, how much our model will be able to make future predictions.
 We try to set these Feature weights, over many iterations, so that they best
-fits our dataset. In this particular code, i had used a CSGO dataset (ADR vs
-Rating). We try to best fit a line through dataset and estimate the parameters.
+fits our data set. In this particular code, i had used a CSGO data set (AD vs
+Rating). We try to best fit a line through data set and estimate the parameters.
 """
 from __future__ import print_function
 
@@ -14,9 +14,9 @@ import numpy as np
 
 
 def collect_dataset():
-    """ Collect dataset of CSGO
-    The dataset contains ADR vs Rating of a Player
-    :return : dataset obtained from the link, as matrix
+    """ Collect data set of CSGO
+    The data set contains AD vs Rating of a Player
+    :return : data set obtained from the link, as matrix
     """
     response = requests.get('https://raw.githubusercontent.com/yashLadha/' +
                             'The_Math_of_Intelligence/master/Week1/ADRvs' +
@@ -33,14 +33,14 @@ def collect_dataset():
 
 def run_steep_gradient_descent(data_x, data_y,
                                len_data, alpha, theta):
-    """ Run steep gradient descent and updates the Feature vector accordingly_
-    :param data_x   : contains the dataset
-    :param data_y   : contains the output associated with each data-entry
-    :param len_data : length of the data_
-    :param alpha    : Learning rate of the model
-    :param theta    : Feature vector (weight's for our model)
-    ;param return    : Updated Feature's, using
-                       curr_features - alpha_ * gradient(w.r.t. feature)
+    """ Run steep gradient descent and updates the Feature vector accordingly
+    :param data_x: contains the data set
+    :param data_y: contains the output associated with each data-entry
+    :param len_data: length of the data
+    :param alpha: Learning rate of the model
+    :param theta: Feature vector (weight's for our model)
+    ;para return : Updated Feature's, using
+     curr_features - alpha * gradient(w.r.t. feature)
     """
     n = len_data
 
@@ -53,11 +53,11 @@ def run_steep_gradient_descent(data_x, data_y,
 
 def sum_of_square_error(data_x, data_y, len_data, theta):
     """ Return sum of square error for error calculation
-    :param data_x    : contains our dataset
-    :param data_y    : contains the output (result vector)
-    :param len_data  : len of the dataset
-    :param theta     : contains the feature vector
-    :return          : sum of square error computed from given feature's
+    :param data_x: contains our data set
+    :param data_y: contains the output (result vector)
+    :param len_data: Ben of the data set
+    :param theta: contains the feature vector
+    :return : sum of square error computed from given feature's
     """
     error = 0.0
     prod = np.dot(theta, data_x.transpose())
@@ -68,10 +68,10 @@ def sum_of_square_error(data_x, data_y, len_data, theta):
 
 
 def run_linear_regression(data_x, data_y):
-    """ Implement Linear regression over the dataset
-    :param data_x  : contains our dataset
-    :param data_y  : contains the output (result vector)
-    :return        : feature for line of best fit (Feature vector)
+    """ Implement Linear regression over the data set
+    :param data_x: contains our data set
+    :param data_y: contains the output (result vector)
+    :return : feature for line of best fit (Feature vector)
     """
     iterations = 100000
     alpha = 0.0001550
@@ -91,7 +91,7 @@ def run_linear_regression(data_x, data_y):
 
 
 def main():
-    """ Driver function """
+    """Driver function"""
     data = collect_dataset()
 
     len_data = data.shape[0]

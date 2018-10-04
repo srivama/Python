@@ -7,6 +7,7 @@ import os
 import sys
 import argparse
 
+
 class FileSplitter(object):
     BLOCK_FILENAME_FORMAT = 'block_{0}.dat'
 
@@ -109,7 +110,6 @@ class FileMerger(object):
         return files
 
 
-
 class ExternalSort(object):
     def __init__(self, block_size):
         self.block_size = block_size
@@ -121,7 +121,8 @@ class ExternalSort(object):
 
         merger = FileMerger(NWayMerge())
         buffer_size = self.block_size / (num_blocks + 1)
-        merger.merge(splitter.get_block_filenames(), filename + '.out', buffer_size)
+        merger.merge(splitter.get_block_filenames(),
+                     filename + '.out', buffer_size)
 
         splitter.cleanup()
 
@@ -138,7 +139,6 @@ def parse_memory(string):
         return int(string[:-1]) * 1024 * 1024 * 1024
     else:
         return int(string)
-
 
 
 def main():

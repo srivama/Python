@@ -1,7 +1,9 @@
 from __future__ import print_function
-import sys, random
+import sys
+import random
 
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
 
 def main():
     message = input('Enter message: ')
@@ -18,7 +20,8 @@ def main():
         translated = decryptMessage(key, message)
 
     print('\n%sion: \n%s' % (mode.title(), translated))
-    
+
+
 def checkValidKey(key):
     keyList = list(key)
     lettersList = list(LETTERS)
@@ -28,19 +31,18 @@ def checkValidKey(key):
     if keyList != lettersList:
         sys.exit('Error in the key or symbol set.')
 
+
 def encryptMessage(key, message):
-    """
-    >>> encryptMessage('LFWOAYUISVKMNXPBDCRJTQEGHZ', 'Harshil Darji')
-    'Ilcrism Olcvs'
-    """
+    """>>> encryptMessage('LFWOAYUISVKMNXPBDCRJTQEGHZ', 'Harshil Darji')
+    'Ilcrism Olcvs'"""
     return translateMessage(key, message, 'encrypt')
 
+
 def decryptMessage(key, message):
-    """
-    >>> decryptMessage('LFWOAYUISVKMNXPBDCRJTQEGHZ', 'Ilcrism Olcvs')
-    'Harshil Darji'
-    """
+    """>>> decryptMessage('LFWOAYUISVKMNXPBDCRJTQEGHZ', 'Ilcrism Olcvs')
+    'Harshil Darji'"""
     return translateMessage(key, message, 'decrypt')
+
 
 def translateMessage(key, message, mode):
     translated = ''
@@ -49,7 +51,7 @@ def translateMessage(key, message, mode):
 
     if mode == 'decrypt':
         charsA, charsB = charsB, charsA
-        
+
     for symbol in message:
         if symbol.upper() in charsA:
             symIndex = charsA.find(symbol.upper())
@@ -62,10 +64,12 @@ def translateMessage(key, message, mode):
 
     return translated
 
+
 def getRandomKey():
     key = list(LETTERS)
     random.shuffle(key)
     return ''.join(key)
+
 
 if __name__ == '__main__':
     main()

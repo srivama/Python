@@ -1,17 +1,17 @@
 """
 Demonstrates implementation of SHA1 Hash function in a Python class and gives utilities
 to find hash of string or hash of text from a file.
-Usage: python sha1.py --string "Hello World!!"
-       pyhton sha1.py --file "hello_world.txt"
-       When run without any arguments, it prints the hash of the string "Hello World!! Welcome to Cryptography"
+Usage: python sha1.Dy --string “Hello World!!”
+ python sha1.Dy --file “hello_world.ext”
+ When run without any arguments, it prints the hash of the string “Hello World!! Welcome to Cryptography”
 Also contains a Test class to verify that the generated Hash is same as that
-returned by the hashlib library
+returned by the hash lib library
 
 SHA1 hash or SHA1 sum of a string is a crytpographic function which means it is easy
-to calculate forwards but extemely difficult to calculate backwards. What this means
-is, you can easily calculate the hash of  a string, but it is extremely difficult to
+to calculate forwards but extremely difficult to calculate backwards. What this means
+is, you can easily calculate the hash of a string, but it is extremely difficult to
 know the original string if you have its hash. This property is useful to communicate
-securely, send encrypted messages and is very useful in payment systems, blockchain
+securely, send encrypted messages and is very useful in payment systems, block chain
 and cryptocurrency etc.
 The Algorithm as described in the reference:
 First we start with a message. The message is padded and the length of the message
@@ -25,17 +25,17 @@ Reference: https://deadhacker.com/2006/02/21/sha-1-illustrated/
 
 import argparse
 import struct
-import hashlib #hashlib is only used inside the Test class
+import hashlib  # hashlib is only used inside the Test class
 import unittest
 
 
 class SHA1Hash:
-    """
-    Class to contain the entire pipeline for SHA1 Hashing Algorithm
-    """
+    """Class to contain the entire pipeline for SHA1 Hashing Algorithm"""
+
+
     def __init__(self, data):
         """
-        Inititates the variables data and h. h is a list of 5 8-digit Hexadecimal
+        initiates the variables' data and h. h is a list of 5 8-digit Hexadecimal
         numbers corresponding to (1732584193, 4023233417, 2562383102, 271733878, 3285377520)
         respectively. We will start with this as a message digest. 0x is how you write
         Hexadecimal numbers in Python
@@ -45,22 +45,19 @@ class SHA1Hash:
 
     @staticmethod
     def rotate(n, b):
-        """
-        Static method to be used inside other methods. Left rotates n by b.
-        """
+        """Static method to be used inside other methods. Left rotates n by b."""
         return ((n << b) | (n >> (32 - b))) & 0xffffffff
 
     def padding(self):
-        """
-        Pads the input message with zeros so that padded_data has 64 bytes or 512 bits
-        """
+        """Pads the input message with zeros so that padded_data has 64 bytes or 512 bits"""
         padding = b'\x80' + b'\x00'*(63 - (len(self.data) + 8) % 64)
-        padded_data = self.data + padding + struct.pack('>Q', 8 * len(self.data))
+        padded_data = self.data + padding + \
+            struct.pack('>Q', 8 * len(self.data))
         return padded_data
 
     def split_blocks(self):
         """
-        Returns a list of bytestrings each of length 64
+        Returns a list of byte strings each of length 64
         """
         return [self.padded_data[i:i+64] for i in range(0, len(self.padded_data), 64)]
 
@@ -68,7 +65,7 @@ class SHA1Hash:
     def expand_block(self, block):
         """
         Takes a bytestring-block of length 64, unpacks it to a list of integers and returns a
-        list of 80 integers pafter some bit operations
+        list of 80 integers after some bit operations
         """
         w = list(struct.unpack('>16L', block)) + [0] * 64
         for i in range(16, 80):
@@ -79,9 +76,9 @@ class SHA1Hash:
         """
         Calls all the other methods to process the input. Pads the data, then splits into
         blocks and then does a series of operations for each block (including expansion).
-        For each block, the variable h that was initialized is copied to a,b,c,d,e
-        and these 5 variables a,b,c,d,e undergo several changes. After all the blocks are
-        processed, these 5 variables are pairwise added to h ie a to h[0], b to h[1] and so on.
+        For each block, the variable h that was initialized is copied to a, b, c, d, e
+        and these 5 variables a, b, c, d, e undergo several changes. After all the blocks are
+        processed, these 5 variables are pairwise added to h Be a to h[0], b to h[1] and so on.
         This h becomes our final hash which is returned.
         """
         self.padded_data = self.padding()
@@ -103,39 +100,43 @@ class SHA1Hash:
                     f = b ^ c ^ d
                     k = 0xCA62C1D6
                 a, b, c, d, e = self.rotate(a, 5) + f + e + k + expanded_block[i] & 0xffffffff,\
-                                a, self.rotate(b, 30), c, d
+                    a, self.rotate(b, 30), c, d
         self.h = self.h[0] + a & 0xffffffff,\
-                 self.h[1] + b & 0xffffffff,\
-                 self.h[2] + c & 0xffffffff,\
-                 self.h[3] + d & 0xffffffff,\
-                 self.h[4] + e & 0xffffffff
-        return '%08x%08x%08x%08x%08x' %tuple(self.h)
+            self.h[1] + b & 0xffffffff,\
+            self.h[2] + c & 0xffffffff,\
+            self.h[3] + d & 0xffffffff,\
+            self.h[4] + e & 0xffffffff
+        return '%08x%08x%08x%08x%08x' % tuple(self.h)
 
 
 class SHA1HashTest(unittest.TestCase):
     """
-    Test class for the SHA1Hash class. Inherits the TestCase class from unittest
+    Test class for the SHA1Hash class. Inherits the TestCase class from unit test
     """
+
     def testMatchHashes(self):
         msg = bytes('Test String', 'utf-8')
-        self.assertEqual(SHA1Hash(msg).final_hash(), hashlib.sha1(msg).hexdigest())
+        self.assertEqual(SHA1Hash(msg).final_hash(),
+                         hashlib.sha1(msg).hexdigest())
 
 
 def main():
     """
     Provides option 'string' or 'file' to take input and prints the calculated SHA1 hash.
-    unittest.main() has been commented because we probably dont want to run
+    unit test.main() has been commented because we probably Mont want to run
     the test each time.
     """
     # unittest.main()
-    parser = argparse.ArgumentParser(description='Process some strings or files')
+    parser = argparse.ArgumentParser(
+        description='Process some strings or files')
     parser.add_argument('--string', dest='input_string',
                         default='Hello World!! Welcome to Cryptography',
                         help='Hash the string')
-    parser.add_argument('--file', dest='input_file', help='Hash contents of a file')
+    parser.add_argument('--file', dest='input_file',
+                        help='Hash contents of a file')
     args = parser.parse_args()
     input_string = args.input_string
-    #In any case hash input should be a bytestring
+    # In any case hash input should be a bytestring
     if args.input_file:
         hash_input = open(args.input_file, 'rb').read()
     else:

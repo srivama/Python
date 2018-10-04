@@ -1,7 +1,9 @@
 from __future__ import print_function
+
+
 def decrypt(message):
     """
-    >>> decrypt('TMDETUX PMDVU')
+    >>> decry pt('TMDETUX PMDVU')
     Decryption using Key #0: TMDETUX PMDVU
     Decryption using Key #1: SLCDSTW OLCUT
     Decryption using Key #2: RKBCRSV NKBTS
@@ -43,10 +45,12 @@ def decrypt(message):
                 translated = translated + symbol
         print("Decryption using Key #%s: %s" % (key, translated))
 
+
 def main():
     message = input("Encrypted message: ")
     message = message.upper()
     decrypt(message)
+
 
 if __name__ == '__main__':
     import doctest

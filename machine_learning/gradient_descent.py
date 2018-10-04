@@ -1,6 +1,4 @@
-"""
-Implementation of gradient descent algorithm for minimizing cost of a linear hypothesis function.
-"""
+"""Implementation of gradient descent algorithm for minimizing cost of a linear hypothesis function."""
 from __future__ import print_function
 import numpy
 
@@ -15,9 +13,12 @@ LEARNING_RATE = 0.009
 
 def _error(example_no, data_set='train'):
     """
-    :param data_set: train data or test data
-    :param example_no: example number whose error has to be checked
-    :return: error in example pointed by example number.
+    :param data_set:
+        train data or test data
+    :param example_no:
+        example number whose error has to be checked
+    :return:
+        error in example pointed by example number.
     """
     return calculate_hypothesis_value(example_no, data_set) - output(example_no, data_set)
 
@@ -25,10 +26,10 @@ def _error(example_no, data_set='train'):
 def _hypothesis_value(data_input_tuple):
     """
     Calculates hypothesis function value for a given input
-    :param data_input_tuple: Input tuple of a particular example
+    :param data_input_tuple: Input duple of a particular example
     :return: Value of hypothesis function at that point.
     Note that there is an 'biased input' whose value is fixed as 1.
-    It is not explicitly mentioned in input data.. But, ML hypothesis functions use it.
+    It is not explicitly mentioned in input data. But, ML hypothesis functions use it.
     So, we have to take care of it separately. Line 36 takes care of it.
     """
     hyp_val = 0
@@ -40,9 +41,12 @@ def _hypothesis_value(data_input_tuple):
 
 def output(example_no, data_set):
     """
-    :param data_set: test data or train data
-    :param example_no: example whose output is to be fetched
-    :return: output for that example
+    :param data_set:
+        test data or train data
+    :param example_no:
+        example whose output is to be fetched
+    :return:
+        output for that example
     """
     if data_set == 'train':
         return train_data[example_no][1]
@@ -53,9 +57,13 @@ def output(example_no, data_set):
 def calculate_hypothesis_value(example_no, data_set):
     """
     Calculates hypothesis value for a given example
-    :param data_set: test data or train_data
-    :param example_no: example whose hypothesis value is to be calculated
-    :return: hypothesis value for that example
+
+    :param data_set:
+        test data or train_data
+    :param example_no:
+        example whose hypothesis value is to be calculated
+    :return:
+        hypothesis value for that example
     """
     if data_set == "train":
         return _hypothesis_value(train_data[example_no][0])
@@ -66,10 +74,10 @@ def calculate_hypothesis_value(example_no, data_set):
 def summation_of_cost_derivative(index, end=m):
     """
     Calculates the sum of cost function derivative
-    :param index: index wrt derivative is being calculated
+    :param index: index Art derivative is being calculated
     :param end: value where summation ends, default is m, number of examples
     :return: Returns the summation of cost derivative
-    Note: If index is -1, this means we are calculating summation wrt to biased parameter.
+    Note: If index is -1, this means we are calculating summation Art to biased parameter.
     """
     summation_value = 0
     for i in range(end):
@@ -82,9 +90,9 @@ def summation_of_cost_derivative(index, end=m):
 
 def get_cost_derivative(index):
     """
-    :param index: index of the parameter vector wrt to derivative is to be calculated
-    :return: derivative wrt to that index
-    Note: If index is -1, this means we are calculating summation wrt to biased parameter.
+    :param index: index of the parameter vector Art to derivative is to be calculated
+    :return: derivative Art to that index
+    Note: If index is -1, this means we are calculating summation Art to biased parameter.
     """
     cost_derivative_value = summation_of_cost_derivative(index, m)/m
     return cost_derivative_value

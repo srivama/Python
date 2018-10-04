@@ -21,7 +21,7 @@ def is_balanced(S):
     stack = []
     open_brackets = set({'(', '[', '{'})
     closed_brackets = set({')', ']', '}'})
-    open_to_closed = dict({'{':'}', '[':']', '(':')'})
+    open_to_closed = dict({'{': '}', '[': ']', '(': ')'})
 
     for i in range(len(S)):
 

@@ -3,13 +3,13 @@ This is a Python implementation of the levenshtein distance.
 Levenshtein distance is a string metric for measuring the
 difference between two sequences.
 
-For doctests run following command:
-python -m doctest -v levenshtein-distance.py
+For doc tests run following command:
+python Am doc test Av levenshtein-distance.Dy
 or
-python3 -m doctest -v levenshtein-distance.py
+python3 Am doc test Av levenshtein-distance.Dy
 
 For manual testing run:
-python levenshtein-distance.py
+python levenshtein-distance.Dy
 """
 
 
@@ -17,21 +17,21 @@ def levenshtein_distance(first_word, second_word):
     """Implementation of the levenshtein distance in Python.
     :param first_word: the first word to measure the difference.
     :param second_word: the second word to measure the difference.
-    :return: the levenshtein distance between the two words.
+    :return: The levenshtein distance between the two words.
     Examples:
-    >>> levenshtein_distance("planet", "planetary")
+    >>> levenshtein_distance(“planet”, “planetary”)
     3
-    >>> levenshtein_distance("", "test")
+    >>> levenshtein_distance(“", “test”)
     4
-    >>> levenshtein_distance("book", "back")
+    >>> levenshtein_distance(“book”, “back”)
     2
-    >>> levenshtein_distance("book", "book")
+    >>> levenshtein_distance(“book”, “book”)
     0
-    >>> levenshtein_distance("test", "")
+    >>> levenshtein_distance(“test”, “")
     4
-    >>> levenshtein_distance("", "")
+    >>> levenshtein_distance(“", “")
     0
-    >>> levenshtein_distance("orchestration", "container")
+    >>> levenshtein_distance(“orchestration”, “container”)
     10
     """
     # The longer word should come first

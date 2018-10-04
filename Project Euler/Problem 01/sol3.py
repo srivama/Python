@@ -15,36 +15,36 @@ try:
 except NameError:
     raw_input = input  # Python 3
 n = int(raw_input().strip())
-sum=0
-num=0
+sum = 0
+num = 0
 while(1):
-    num+=3
-    if(num>=n):
+    num += 3
+    if(num >= n):
         break
-    sum+=num
-    num+=2
-    if(num>=n):
+    sum += num
+    num += 2
+    if(num >= n):
         break
-    sum+=num
-    num+=1
-    if(num>=n):
+    sum += num
+    num += 1
+    if(num >= n):
         break
-    sum+=num
-    num+=3
-    if(num>=n):
+    sum += num
+    num += 3
+    if(num >= n):
         break
-    sum+=num
-    num+=1
-    if(num>=n):
+    sum += num
+    num += 1
+    if(num >= n):
         break
-    sum+=num
-    num+=2
-    if(num>=n):
+    sum += num
+    num += 2
+    if(num >= n):
         break
-    sum+=num
-    num+=3
-    if(num>=n):
+    sum += num
+    num += 3
+    if(num >= n):
         break
-    sum+=num
+    sum += num
 
-print(sum);
+print(sum)

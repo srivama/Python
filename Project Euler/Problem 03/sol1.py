@@ -7,30 +7,32 @@ from __future__ import print_function
 
 import math
 
+
 def isprime(no):
-    if(no==2):
+    if(no == 2):
         return True
-    elif (no%2==0):
+    elif (no % 2 == 0):
         return False
     sq = int(math.sqrt(no))+1
-    for i in range(3,sq,2):
-        if(no%i==0):
+    for i in range(3, sq, 2):
+        if(no % i == 0):
             return False
     return True
 
+
 maxNumber = 0
-n=int(input())
+n = int(input())
 if(isprime(n)):
     print(n)
 else:
-    while (n%2==0):
-        n=n/2
+    while (n % 2 == 0):
+        n = n/2
     if(isprime(n)):
         print(n)
     else:
         n1 = int(math.sqrt(n))+1
-        for i in range(3,n1,2):
-            if(n%i==0):
+        for i in range(3, n1, 2):
+            if(n % i == 0):
                 if(isprime(n/i)):
                     maxNumber = n/i
                     break

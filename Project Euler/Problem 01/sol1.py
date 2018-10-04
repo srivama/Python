@@ -10,8 +10,8 @@ try:
 except NameError:
     raw_input = input  # Python 3
 n = int(raw_input().strip())
-sum=0
-for a in range(3,n):
-    if(a%3==0 or a%5==0):
-        sum+=a
+sum = 0
+for a in range(3, n):
+    if(a % 3 == 0 or a % 5 == 0):
+        sum += a
 print(sum)

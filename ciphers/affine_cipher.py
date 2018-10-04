@@ -1,7 +1,10 @@
 from __future__ import print_function
-import sys, random, cryptomath_module as cryptoMath
+import sys
+import random
+import cryptomath_module as cryptoMath
 
 SYMBOLS = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"""
+
 
 def main():
     message = input('Enter message: ')
@@ -9,27 +12,34 @@ def main():
     mode = input('Encrypt/Decrypt [E/D]: ')
 
     if mode.lower().startswith('e'):
-              mode = 'encrypt'
-              translated = encryptMessage(key, message)
+        mode = 'encrypt'
+        translated = encryptMessage(key, message)
     elif mode.lower().startswith('d'):
-              mode = 'decrypt'
-              translated = decryptMessage(key, message)
+        mode = 'decrypt'
+        translated = decryptMessage(key, message)
     print('\n%sed text: \n%s' % (mode.title(), translated))
+
 
 def getKeyParts(key):
     keyA = key // len(SYMBOLS)
     keyB = key % len(SYMBOLS)
     return (keyA, keyB)
 
+
 def checkKeys(keyA, keyB, mode):
     if keyA == 1 and mode == 'encrypt':
-        sys.exit('The affine cipher becomes weak when key A is set to 1. Choose different key')
+        sys.exit(
+            'The affine cipher becomes weak when key A is set to 1. Choose different key')
     if keyB == 0 and mode == 'encrypt':
-        sys.exit('The affine cipher becomes weak when key A is set to 1. Choose different key')
+        sys.exit(
+            'The affine cipher becomes weak when key A is set to 1. Choose different key')
     if keyA < 0 or keyB < 0 or keyB > len(SYMBOLS) - 1:
-        sys.exit('Key A must be greater than 0 and key B must be between 0 and %s.' % (len(SYMBOLS) - 1))
+        sys.exit('Key A must be greater than 0 and key B must be between 0 and %s.' % (
+            len(SYMBOLS) - 1))
     if cryptoMath.gcd(keyA, len(SYMBOLS)) != 1:
-        sys.exit('Key A %s and the symbol set size %s are not relatively prime. Choose a different key.' % (keyA, len(SYMBOLS)))
+        sys.exit('Key A %s and the symbol set size %s are not relatively prime. Choose a different key.' % (
+            keyA, len(SYMBOLS)))
+
 
 def encryptMessage(key, message):
     '''
@@ -47,6 +57,7 @@ def encryptMessage(key, message):
             cipherText += symbol
     return cipherText
 
+
 def decryptMessage(key, message):
     '''
     >>> decryptMessage(4545, 'VL}p MM{I}p~{HL}Gp{vp pFsH}pxMpyxIx JHL O}F{~pvuOvF{FuF{xIp~{HL}Gi')
@@ -59,10 +70,12 @@ def decryptMessage(key, message):
     for symbol in message:
         if symbol in SYMBOLS:
             symIndex = SYMBOLS.find(symbol)
-            plainText += SYMBOLS[(symIndex - keyB) * modInverseOfkeyA % len(SYMBOLS)]
+            plainText += SYMBOLS[(symIndex - keyB) *
+                                 modInverseOfkeyA % len(SYMBOLS)]
         else:
             plainText += symbol
     return plainText
+
 
 def getRandomKey():
     while True:
@@ -70,6 +83,7 @@ def getRandomKey():
         keyB = random.randint(2, len(SYMBOLS))
     if cryptoMath.gcd(keyA, len(SYMBOLS)) == 1:
         return keyA * len(SYMBOLS) + keyB
+
 
 if __name__ == '__main__':
     import doctest

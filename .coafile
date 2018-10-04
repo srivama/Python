@@ -1,0 +1,15 @@
+[all]
+bears = InvalidLinkBear, FilenameBear, coalaBear, LineCountBear
+files = **.md, **.py
+max_lines_per_file = 800
+default_actions = *: ApplyPatchAction
+non_interactive = True
+
+[all.python]
+bears = PycodestyleBear, DocGrammarBear, DocumentationStyleBear, PEP8Bear
+files = **.py
+language = Python
+
+[all.markdown]
+bears = MarkdownBear, TextLintBear
+files = **.md

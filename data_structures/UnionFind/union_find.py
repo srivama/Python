@@ -1,6 +1,5 @@
 class UnionFind():
-    """
-    https://en.wikipedia.org/wiki/Disjoint-set_data_structure
+    """https://en.wikipedia.org/wiki/Disjoint-set_data_structure
 
     The union-find is a disjoint-set data structure
 
@@ -10,8 +9,9 @@ class UnionFind():
     It's used on the Kruskal Algorithm
     (https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
-    The elements are in range [0, size]
-    """
+    The elements are in range [0, size]"""
+
+
     def __init__(self, size):
         if size <= 0:
             raise ValueError("size should be greater than 0")
@@ -28,12 +28,9 @@ class UnionFind():
         self.weight = [0 for i in range(size+1)]
 
     def union(self, u, v):
-        """
-        Union of the sets u and v.
+        """Union of the sets u and v.
         Complexity: log(n).
-        Amortized complexity: < 5 (it's very fast).
-        """
-
+        Amortized complexity: < 5 (it's very fast)."""
         self._validate_element_range(u, "u")
         self._validate_element_range(v, "v")
 
@@ -54,11 +51,8 @@ class UnionFind():
             self.root[rootu] = rootv
 
     def same_set(self, u, v):
-        """
-        Return true if the elements u and v belongs to
-        the same set
-        """
-
+        """Return true if the elements u and v belongs to
+        the same set"""
         self._validate_element_range(u, "u")
         self._validate_element_range(v, "v")
 
@@ -68,18 +62,15 @@ class UnionFind():
         """
         Get the element set root.
         This uses the heuristic path compression
-        See wikipedia article for more details.
+        See Wikipedia article for more details.
         """
-
         if u != self.root[u]:
             self.root[u] = self._root(self.root[u])
 
         return self.root[u]
 
     def _validate_element_range(self, u, element_name):
-        """
-        Raises ValueError if element is not in range
-        """
+        """Raises ValueError if element is not in range"""
         if u < 0 or u > self.size:
             msg = ("element {0} with value {1} "
                    "should be in range [0~{2}]")\

@@ -1,6 +1,4 @@
-"""
-This is pure python implementation of tree traversal algorithms
-"""
+"""This is pure python implementation of tree traversal algorithms"""
 from __future__ import print_function
 import queue
 
@@ -22,7 +20,7 @@ def build_tree():
     print("Enter the value of the root node: ", end="")
     check = raw_input().strip().lower()
     if check == 'n':
-        return None 
+        return None
     data = int(check)
     q = queue.Queue()
     tree_node = TreeNode(data)

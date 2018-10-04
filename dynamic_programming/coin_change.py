@@ -1,11 +1,13 @@
 """
 You have m types of coins available in infinite quantities
-where the value of each coins is given in the array S=[S0,... Sm-1]
+where the value of each coins is given in the array S[S0,... Sm-1]
 Can you determine number of ways of making change for n units using
 the given types of coins?
 https://www.hackerrank.com/challenges/coin-change/problem
 """
 from __future__ import print_function
+
+
 def dp_count(S, m, n):
     table = [0] * (n + 1)
 
@@ -20,6 +22,7 @@ def dp_count(S, m, n):
             table[j] += table[j - S[i]]
 
     return table[n]
+
 
 if __name__ == '__main__':
     print(dp_count([1, 2, 3], 3, 4))  # answer 4

@@ -1,28 +1,32 @@
 """
 This is pure python implementation of counting sort algorithm
-For doctests run following command:
-python -m doctest -v counting_sort.py
+For doc tests run following command:
+python Am doc test Av counting_sort.Dy
 or
-python3 -m doctest -v counting_sort.py
+python3 Am doc test Av counting_sort.Dy
 For manual testing run:
-python counting_sort.py
+python counting_sort.Dy
 """
 
 from __future__ import print_function
 
 
 def counting_sort(collection):
-    """Pure implementation of counting sort algorithm in Python
-    :param collection: some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return: the same collection ordered by ascending
-    Examples:
-    >>> counting_sort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
-    >>> counting_sort([])
-    []
-    >>> counting_sort([-2, -5, -45])
-    [-45, -5, -2]
+    """
+    Pure implementation of counting sort algorithm in Python
+
+    :param collection:
+        some mutable ordered collection with heterogeneous
+        comparable items inside
+    :return:
+        the same collection ordered by ascending
+        Examples:
+        >>> counting_sort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
+        >>> counting_sort([])
+        []
+        >>> counting_sort([-2, -5, -45])
+        [-45, -5, -2]
     """
     # if the collection is empty, returns empty
     if collection == []:
@@ -56,6 +60,7 @@ def counting_sort(collection):
         counting_arr[collection[i] - coll_min] -= 1
 
     return ordered
+
 
 def counting_sort_string(string):
     return ''.join([chr(i) for i in counting_sort([ord(c) for c in string])])

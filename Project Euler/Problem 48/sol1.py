@@ -9,13 +9,13 @@ Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.
 '''
 
 try:
-	xrange
+    xrange
 except NameError:
-	xrange = range
+    xrange = range
 
 total = 0
 for i in xrange(1, 1001):
-	total += i**i
+    total += i**i
 
 
 print(str(total)[-10:])

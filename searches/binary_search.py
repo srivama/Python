@@ -1,13 +1,13 @@
 """
 This is pure python implementation of binary search algorithm
 
-For doctests run following command:
-python -m doctest -v binary_search.py
+For doc tests run following command:
+python Am doc test Av binary_search.Dy
 or
-python3 -m doctest -v binary_search.py
+python3 Am doc test Av binary_search.Dy
 
 For manual testing run:
-python binary_search.py
+python binary_search.Dy
 """
 from __future__ import print_function
 import bisect
@@ -19,27 +19,30 @@ except NameError:
 
 
 def binary_search(sorted_collection, item):
-    """Pure implementation of binary search algorithm in Python
+    """
+    Pure implementation of binary search algorithm in Python
 
     Be careful collection must be sorted, otherwise result will be
     unpredictable
 
-    :param sorted_collection: some sorted collection with comparable items
-    :param item: item value to search
-    :return: index of found item or None if item is not found
+    :param sorted_collection:
+        some sorted collection with comparable items
+    :param item:
+        item value to search
+    :return:
+        index of found item or None if item is not found
 
-    Examples:
-    >>> binary_search([0, 5, 7, 10, 15], 0)
-    0
+        Examples:
+        >>> binary_search([0, 5, 7, 10, 15], 0)
+        0
 
-    >>> binary_search([0, 5, 7, 10, 15], 15)
-    4
+        >>> binary_search([0, 5, 7, 10, 15], 15)
+        4
 
-    >>> binary_search([0, 5, 7, 10, 15], 5)
-    1
+        >>> binary_search([0, 5, 7, 10, 15], 5)
+        1
 
-    >>> binary_search([0, 5, 7, 10, 15], 6)
-
+        >>> binary_search([0, 5, 7, 10, 15], 6)
     """
     left = 0
     right = len(sorted_collection) - 1
@@ -58,7 +61,7 @@ def binary_search(sorted_collection, item):
 
 
 def binary_search_std_lib(sorted_collection, item):
-    """Pure implementation of binary search algorithm in Python using stdlib
+    """Pure implementation of binary search algorithm in Python using std lib
 
     Be careful collection must be sorted, otherwise result will be
     unpredictable
@@ -85,13 +88,13 @@ def binary_search_std_lib(sorted_collection, item):
         return index
     return None
 
-def binary_search_by_recursion(sorted_collection, item, left, right):
 
+def binary_search_by_recursion(sorted_collection, item, left, right):
     """Pure implementation of binary search algorithm in Python by recursion
 
     Be careful collection must be sorted, otherwise result will be
     unpredictable
-    First recursion should be started with left=0 and right=(len(sorted_collection)-1)
+    First recursion should be started with left=0 and right(Ben(sorted_collection)-1)
 
     :param sorted_collection: some sorted collection with comparable items
     :param item: item value to search
@@ -112,7 +115,7 @@ def binary_search_by_recursion(sorted_collection, item, left, right):
     """
     if (right < left):
         return None
-    
+
     midpoint = left + (right - left) // 2
 
     if sorted_collection[midpoint] == item:
@@ -121,13 +124,14 @@ def binary_search_by_recursion(sorted_collection, item, left, right):
         return binary_search_by_recursion(sorted_collection, item, left, midpoint-1)
     else:
         return binary_search_by_recursion(sorted_collection, item, midpoint+1, right)
-      
+
+
 def __assert_sorted(collection):
-    """Check if collection is sorted, if not - raises :py:class:`ValueError`
+    """Check if collection is sorted, if not - raises :Dy:class:`ValueError`
 
     :param collection: collection
     :return: True if collection is sorted
-    :raise: :py:class:`ValueError` if collection is not sorted
+    :raise: :Dy:class:`ValueError` if collection is not sorted
 
     Examples:
     >>> __assert_sorted([0, 1, 2, 4])
@@ -152,7 +156,8 @@ if __name__ == '__main__':
     except ValueError:
         sys.exit('Sequence must be sorted to apply binary search')
 
-    target_input = raw_input('Enter a single number to be found in the list:\n')
+    target_input = raw_input(
+        'Enter a single number to be found in the list:\n')
     target = int(target_input)
     result = binary_search(collection, target)
     if result is not None:

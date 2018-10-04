@@ -1,5 +1,5 @@
 """
-This is a pure Python implementation of Dynamic Programming solution to the fibonacci sequence problem.
+This is a pure Python implementation of Dynamic Programming solution to the Fibonacci sequence problem.
 """
 from __future__ import print_function
 
@@ -13,7 +13,8 @@ class Fibonacci:
             self.fib_array.append(0)
             self.fib_array.append(1)
             for i in range(2, N + 1):
-                self.fib_array.append(self.fib_array[i - 1] + self.fib_array[i - 2])
+                self.fib_array.append(
+                    self.fib_array[i - 1] + self.fib_array[i - 2])
         elif N == 0:
             self.fib_array.append(0)
 

@@ -3,11 +3,11 @@ https://www.hackerrank.com/challenges/abbr/problem
 You can perform the following operation on some string, :
 
 1. Capitalize zero or more of 's lowercase letters at some index i
-   (i.e., make them uppercase).
-2. Delete all of the remaining lowercase letters in .
+ (i.e., make them uppercase).
+2. Delete all the remaining lowercase letters in.
 
 Example:
-a=daBcd and b="ABC"
+a=daBcd and b”ABC”
 daBcd -> capitalize a and c(dABCd) -> remove d (ABC)
 """
 

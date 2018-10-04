@@ -1,8 +1,11 @@
 from __future__ import print_function
-import sys, rsa_key_generator as rkg, os
+import sys
+import rsa_key_generator as rkg
+import os
 
 DEFAULT_BLOCK_SIZE = 128
 BYTE_SIZE = 256
+
 
 def main():
     filename = 'encrypted_file.txt'
@@ -16,11 +19,12 @@ def main():
     if mode == 'encrypt':
         if not os.path.exists('rsa_pubkey.txt'):
             rkg.makeKeyFiles('rsa', 1024)
-            
+
         message = input('\nEnter message: ')
         pubKeyFilename = 'rsa_pubkey.txt'
         print('Encrypting and writing to %s...' % (filename))
-        encryptedText = encryptAndWriteToFile(filename, pubKeyFilename, message)
+        encryptedText = encryptAndWriteToFile(
+            filename, pubKeyFilename, message)
 
         print('\nEncrypted text:')
         print(encryptedText)
@@ -120,6 +124,7 @@ def readFromFileAndDecrypt(messageFilename, keyFilename):
         encryptedBlocks.append(int(block))
 
     return decryptMessage(encryptedBlocks, messageLength, (n, d), blockSize)
+
 
 if __name__ == '__main__':
     main()
